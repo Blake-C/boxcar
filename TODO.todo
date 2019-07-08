@@ -1,0 +1,10 @@
+TODO:
+	☐ Add tasks to list items
+	☐ Add background image to boards
+	☐ Find a better way to call board details into board page
+	☐ Create database
+	☐ Create API (Boards/Lists/Tasks)
+		Create
+		Read
+		Update
+		Delete
