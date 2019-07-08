@@ -1,0 +1,58 @@
+[
+	{
+		"id": 1,
+		"userId": 1,
+		"title": "Personal Tasks",
+		"featured": true,
+		"backgroundImage": "default-1-medium.jpg"
+	},
+	{
+		"id": 2,
+		"userId": 1,
+		"title": "DigitalBlake",
+		"featured": true,
+		"backgroundImage": "default-1-medium.jpg"
+	},
+	{
+		"id": 3,
+		"userId": 1,
+		"title": "Tasks",
+		"featured": false,
+		"backgroundImage": "default-1-medium.jpg"
+	},
+	{
+		"id": 4,
+		"userId": 1,
+		"title": "Sample Board",
+		"featured": false,
+		"backgroundImage": ""
+	},
+	{
+		"id": 5,
+		"userId": 1,
+		"title": "Sample Board v2",
+		"featured": false,
+		"backgroundImage": ""
+	},
+	{
+		"id": 6,
+		"userId": 1,
+		"title": "Sample Board v3",
+		"featured": false,
+		"backgroundImage": ""
+	},
+	{
+		"id": 7,
+		"userId": 1,
+		"title": "Sample Board v4",
+		"featured": false,
+		"backgroundImage": ""
+	},
+	{
+		"id": 8,
+		"userId": 1,
+		"title": "Sample Board v5",
+		"featured": false,
+		"backgroundImage": ""
+	}
+]

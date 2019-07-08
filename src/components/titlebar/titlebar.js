@@ -14,11 +14,6 @@ class Titlebar extends Component {
 							</Link>
 						</li>
 						<li>
-							<a className="button" href="/">
-								Boards
-							</a>
-						</li>
-						<li>
 							<form action="">
 								<label htmlFor="primary_search" className="sr">
 									Search

@@ -1,0 +1,38 @@
+users
+    id
+    username
+    firstName
+    LastName
+    emailAddress
+    team
+    status
+
+boards
+    id
+    userId
+    title
+    featured
+    backgroundImage
+    status
+
+lists
+    id
+    userId
+    boardId
+    title
+    status
+	ordinal
+
+tasks
+    id
+    userId
+    boardId
+    listId
+    title
+    status
+    description
+    members
+    labels
+    dueDate
+    startDate
+	ordinal

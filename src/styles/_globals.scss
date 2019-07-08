@@ -2,6 +2,12 @@ body {
 	font-family: 'IBM Plex Sans', sans-serif;
 }
 
+*,
+:after,
+:before {
+	box-sizing: inherit;
+}
+
 button,
 .button {
 	background-color: $a;
@@ -14,7 +20,7 @@ button,
 }
 
 .sr {
-	-webkit-clip-path: inset(50%);
+	-webkit-clip-path: inset(50%); // sass-lint:disable-line no-vendor-prefixes
 	border: 0;
 	clip: rect(0, 0, 0, 0);
 	clip-path: inset(50%);
@@ -24,4 +30,26 @@ button,
 	position: absolute !important;
 	white-space: nowrap;
 	width: 1px;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 15px;
+}
+
+.fixed {
+	max-width: 960px;
+}
+
+.error404 {
+	background-color: $c;
+	border-radius: 5px;
+	margin-top: 30px;
+	padding: 50px 30px;
+	text-align: center;
+
+	h1 {
+		color: $white;
+		margin-top: 0;
+	}
 }

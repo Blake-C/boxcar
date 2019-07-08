@@ -1,17 +1,26 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Board from './board/board'
-import data from './boards-data'
 import './boards.scss'
 
-class Boards extends Component {
-	render() {
-		return (
-			<div className="boards-list">
-				<Board title="Featured" data={data} featured={true} />
-				<Board title="Boards" data={data} featured={false} />
-			</div>
-		)
+function Boards() {
+	useEffect(() => {
+		fetchBoards()
+	}, [])
+
+	const fetchBoards = async () => {
+		const data = await fetch('http://localhost:3000/data/boards-data.json')
+		const boards = await data.json()
+		setBoards(boards)
 	}
+
+	const [boards, setBoards] = useState([])
+
+	return (
+		<div className="boards-list container fixed">
+			<Board title="Featured" data={boards} featured={true} />
+			<Board title="Boards" data={boards} featured={false} />
+		</div>
+	)
 }
 
 export default Boards
