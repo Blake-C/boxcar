@@ -4,28 +4,32 @@
 		"userId": 1,
 		"title": "Personal Tasks",
 		"featured": true,
-		"backgroundImage": "default-1-medium.jpg"
+		"backgroundImage": "default-1-medium.jpg",
+		"backgroundImageLarge": "default-1-large.jpg"
 	},
 	{
 		"id": 2,
 		"userId": 1,
 		"title": "DigitalBlake",
 		"featured": true,
-		"backgroundImage": "default-1-medium.jpg"
+		"backgroundImage": "default-1-medium.jpg",
+		"backgroundImageLarge": "default-1-large.jpg"
 	},
 	{
 		"id": 3,
 		"userId": 1,
 		"title": "Tasks",
 		"featured": false,
-		"backgroundImage": "default-1-medium.jpg"
+		"backgroundImage": "default-1-medium.jpg",
+		"backgroundImageLarge": "default-1-large.jpg"
 	},
 	{
 		"id": 4,
 		"userId": 1,
 		"title": "Sample Board",
 		"featured": false,
-		"backgroundImage": ""
+		"backgroundImage": "",
+		"backgroundImageLarge": ""
 	},
 	{
 		"id": 5,

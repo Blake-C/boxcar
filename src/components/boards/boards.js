@@ -5,6 +5,7 @@ import './boards.scss'
 function Boards() {
 	useEffect(() => {
 		fetchBoards()
+		document.title = 'Boxcar'
 	}, [])
 
 	const fetchBoards = async () => {

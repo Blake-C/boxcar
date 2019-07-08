@@ -8,19 +8,20 @@ function Board({ match }) {
 		fetcBoards()
 	}, [])
 
+	const [lists, setLists] = useState([])
+	const [boards, setBoards] = useState([])
+
 	const fetchLists = async () => {
 		const data = await fetch('http://localhost:3000/data/lists-data.json')
 		const lists = await data.json()
 		setLists(lists)
 	}
-	const [lists, setLists] = useState([])
 
 	const fetcBoards = async () => {
 		const data = await fetch('http://localhost:3000/data/boards-data.json')
 		const boards = await data.json()
 		setBoards(boards)
 	}
-	const [boards, setBoards] = useState([])
 
 	const board = boards.find(board => parseInt(board.id) === parseInt(match.params.id))
 
@@ -28,6 +29,22 @@ function Board({ match }) {
 		.filter(list => parseInt(list.boardId) === parseInt(match.params.id))
 		.sort((a, b) => a.ordinal - b.ordinal)
 		.map(list => <List data={list} key={list.id} />)
+
+	useEffect(() => {
+		document.title = `Board: ${board === undefined ? '' : board.title}`
+		document.body.style.backgroundColor = 'rgb(107, 135, 206)'
+		if (undefined !== board && '' !== board.backgroundImageLarge && undefined !== board.backgroundImageLarge) {
+			document.body.style.backgroundImage = `url(/assets/images/${board.backgroundImageLarge})`
+		}
+		document.body.classList.add('cover')
+
+		return () => {
+			document.title = ''
+			document.body.style.backgroundColor = ''
+			document.body.style.backgroundImage = ''
+			document.body.classList.remove('cover')
+		}
+	}, [board])
 
 	return (
 		<React.Fragment>

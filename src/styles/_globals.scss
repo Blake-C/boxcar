@@ -1,5 +1,10 @@
+html {
+	height: 100%;
+}
+
 body {
 	font-family: 'IBM Plex Sans', sans-serif;
+	min-height: 100%;
 }
 
 *,
@@ -52,4 +57,10 @@ button,
 		color: $white;
 		margin-top: 0;
 	}
+}
+
+.cover {
+	@extend %cover;
+
+	background-position: center bottom;
 }

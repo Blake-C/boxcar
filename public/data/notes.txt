@@ -13,6 +13,7 @@ boards
     title
     featured
     backgroundImage
+    backgroundImageLarge
     status
 
 lists
@@ -30,6 +31,7 @@ tasks
     listId
     title
     status
+	title
     description
     members
     labels
