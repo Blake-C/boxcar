@@ -1,0 +1,51 @@
+@import '../../styles/imports';
+
+.boards-list {
+	margin: 0 auto;
+	max-width: 960px;
+
+	h1 {
+		font-size: 1.3rem;
+		margin-bottom: 0.5rem;
+	}
+
+	h2 {
+		font-size: 1rem;
+		margin: 0;
+		padding: 0;
+		position: relative;
+		z-index: 1;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	.boards {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: 1rem;
+	}
+
+	.board {
+		@extend %cover;
+
+		background-color: $a;
+		background-position: center bottom;
+		color: $white;
+		min-height: 5rem;
+		padding: 1rem;
+		position: relative;
+
+		&:after {
+			background-color: rgba($black, 0.3);
+			bottom: 0;
+			content: '';
+			left: 0;
+			position: absolute;
+			right: 0;
+			top: 0;
+			z-index: 0;
+		}
+	}
+}

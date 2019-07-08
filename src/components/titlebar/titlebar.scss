@@ -1,0 +1,76 @@
+@import '../../styles/variables';
+
+.titlebar {
+	align-items: center;
+	background-color: $c;
+	color: $white;
+	display: grid;
+	grid-gap: 1rem;
+	font-size: 0.8rem;
+	grid-template-columns: repeat(3, 1fr);
+	padding: 5px;
+
+	p {
+		margin: 0;
+		padding: 0;
+	}
+
+	input {
+		background-color: $a;
+		border: 1px solid $b;
+		border-radius: 3px;
+		color: $white;
+		padding: 5px 10px;
+
+		&::-webkit-input-placeholder {
+			/* Chrome/Opera/Safari */
+			color: $white;
+		}
+
+		&::-moz-placeholder {
+			/* Firefox 19+ */
+			color: $white;
+		}
+
+		&:-ms-input-placeholder {
+			/* IE 10+ */
+			color: $white;
+		}
+
+		&:-moz-placeholder {
+			/* Firefox 18- */
+			color: $white;
+		}
+	}
+}
+
+.left-titlebar {
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		display: inline-block;
+		list-style-type: none;
+	}
+}
+
+.center-titlebar {
+	text-align: center;
+
+	h1 {
+		font-size: 1rem;
+		margin: 0;
+		padding: 0;
+
+		a {
+			color: $white;
+			text-decoration: none;
+		}
+	}
+}
+
+.right-titlebar {
+	text-align: right;
+}
