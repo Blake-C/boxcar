@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Task from './task/task'
 
+function handleOnClick() {
+	document.execCommand('selectAll', false, null)
+}
+
+function addAnotherTask(event) {
+	event.preventDefault()
+
+	alert('New Task')
+}
+
 function List(props) {
 	const { id, title, ordinal } = props.data
 
@@ -23,9 +33,15 @@ function List(props) {
 
 	return (
 		<div className={`list-item item-${ordinal}`}>
-			<h2>{title}</h2>
+			<h2 contenteditable="true" onClick={handleOnClick}>
+				{title}
+			</h2>
 
-			{tasksFiltered}
+			<div className="tasks-container">{tasksFiltered}</div>
+
+			<a href="/" className="add-task-button" onClick={addAnotherTask}>
+				+ Add another task
+			</a>
 		</div>
 	)
 }

@@ -3,7 +3,7 @@
 		"id": 1,
 		"userId": 1,
 		"boardId": 1,
-		"title": "TO-DO's",
+		"title": "🔔 TO-DO's",
 		"status": "active",
 		"ordinal": 0
 	},
@@ -27,7 +27,7 @@
 		"id": 4,
 		"userId": 1,
 		"boardId": 1,
-		"title": "In Progress",
+		"title": "🚀 In Progress",
 		"status": "active",
 		"ordinal": 1
 	},
@@ -35,7 +35,7 @@
 		"id": 5,
 		"userId": 1,
 		"boardId": 1,
-		"title": "Done",
+		"title": "✅ Done",
 		"status": "active",
 		"ordinal": 2
 	}

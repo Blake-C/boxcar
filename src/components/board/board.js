@@ -50,7 +50,7 @@ function Board({ match }) {
 		<React.Fragment>
 			<div className="board-bar">{board === undefined ? '' : <h1>{board.title}</h1>}</div>
 
-			<div className="lists-list container">{filterLists}</div>
+			<div className="lists-container container">{filterLists}</div>
 		</React.Fragment>
 	)
 }
