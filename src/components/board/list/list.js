@@ -33,7 +33,7 @@ function List(props) {
 
 	return (
 		<div className={`list-item item-${ordinal}`}>
-			<h2 contenteditable="true" onClick={handleOnClick}>
+			<h2 contentEditable="true" onClick={handleOnClick}>
 				{title}
 			</h2>
 

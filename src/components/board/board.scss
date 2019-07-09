@@ -56,11 +56,47 @@
 	border-radius: 3px;
 	margin: 5px 0;
 	padding: 5px;
+	position: relative;
 
 	h3 {
 		margin: 0;
 		font-size: 0.8rem;
 		font-weight: 500;
+	}
+
+	p {
+		font-size: 0.8rem;
+	}
+
+	.date-container {
+		float: right;
+
+		p {
+			&:last-child {
+				margin-top: 2px;
+			}
+		}
+	}
+
+	.date {
+		background-color: rgb(246, 246, 246);
+		border-radius: 3px;
+		border: 1px solid rgb(221, 221, 221);
+		font-size: 0.7rem;
+		margin: 0 0 0 2px;
+		padding: 0px 5px;
+
+		&.coming-up {
+			background-color: rgb(131, 216, 255);
+		}
+
+		&.due {
+			background-color: rgb(229, 255, 0);
+		}
+
+		&.past-due {
+			background-color: rgb(255, 157, 157);
+		}
 	}
 }
 

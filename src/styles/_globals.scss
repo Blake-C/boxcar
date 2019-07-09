@@ -13,6 +13,17 @@ body {
 	box-sizing: inherit;
 }
 
+.clearfix {
+	&:after,
+	&:before {
+		display: table;
+		content: '';
+		flex-basis: 0%;
+		order: 1;
+		clear: both;
+	}
+}
+
 button,
 .button {
 	background-color: $a;
