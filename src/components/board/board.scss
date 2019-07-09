@@ -23,7 +23,7 @@
 .list-item {
 	background-color: lighten($a, 30%);
 	border-radius: 3px;
-	max-height: calc(100vh - 115px);
+	max-height: calc(100vh);
 	overflow: hidden;
 	padding: 5px 10px 0 10px;
 	position: relative;
@@ -60,8 +60,9 @@
 
 	h3 {
 		margin: 0;
-		font-size: 0.8rem;
+		font-size: 0.7rem;
 		font-weight: 500;
+		line-height: 1.5;
 	}
 
 	p {
@@ -70,6 +71,7 @@
 
 	.date-container {
 		float: right;
+		min-width: 72px;
 
 		p {
 			&:last-child {

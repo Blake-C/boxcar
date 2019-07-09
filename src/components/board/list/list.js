@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Task from './task/task'
 
-function handleOnClick() {
+function listTiitleHandleOnClick() {
 	document.execCommand('selectAll', false, null)
 }
 
@@ -11,8 +11,21 @@ function addAnotherTask(event) {
 	alert('New Task')
 }
 
+function listTitleKeyPress(event) {
+	if (event.which === 13) {
+		event.preventDefault()
+	}
+}
+
 function List(props) {
-	const { id, title, ordinal } = props.data
+	const { id, ordinal, title } = props.data
+
+	const listTitleBlur = () => {
+		alert('Title Change')
+	}
+
+	// Fetch Tasks
+	const [tasks, setTask] = useState([])
 
 	useEffect(() => {
 		fetchTask()
@@ -23,7 +36,6 @@ function List(props) {
 		const tasks = await data.json()
 		setTask(tasks)
 	}
-	const [tasks, setTask] = useState([])
 
 	const tasksFiltered = tasks
 		.filter(task => parseInt(task.listId) === parseInt(id))
@@ -33,7 +45,12 @@ function List(props) {
 
 	return (
 		<div className={`list-item item-${ordinal}`}>
-			<h2 contentEditable="true" onClick={handleOnClick}>
+			<h2
+				contentEditable="true"
+				onClick={listTiitleHandleOnClick}
+				onBlur={listTitleBlur}
+				onKeyPress={listTitleKeyPress}
+			>
 				{title}
 			</h2>
 
