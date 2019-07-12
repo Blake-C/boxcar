@@ -14,3 +14,13 @@ TODO:
 		Read
 		Update
 		Delete
+	☐ Build custom calendar view for tasks
+	☐ Build chat into tasks detail page
+	☐ Build Tasks new task state management
+		☐ Create new task form
+			Show on button click
+			Have submit button
+			Have cancel button
+			Enter will submit form and create new task
+		☐ Add new task to state
+		☐ Think about how we want the task detail view to work
