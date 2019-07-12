@@ -38,5 +38,13 @@
 		"title": "✅ Done",
 		"status": "active",
 		"ordinal": 2
+	},
+	{
+		"id": 6,
+		"userId": 1,
+		"boardId": 7,
+		"title": "✅ Done",
+		"status": "active",
+		"ordinal": 2
 	}
 ]
