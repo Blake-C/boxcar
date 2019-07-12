@@ -24,7 +24,7 @@ function Board({ match }) {
 	}
 
 	const updateListTitle = event => {
-		const listId = parseInt(event.target.id)
+		const listId = parseInt(event.target.dataset.id)
 		const newListTitile = event.target.value
 		setLists(prevState => {
 			const newState = prevState.map(item => {

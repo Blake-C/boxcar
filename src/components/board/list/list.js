@@ -3,6 +3,7 @@ import Task from './task/task'
 
 function List(props) {
 	const { id, ordinal, title } = props.data
+	const listTitle = React.createRef()
 
 	// Fetch Tasks
 	const [tasks, setTask] = useState([])
@@ -23,20 +24,31 @@ function List(props) {
 		.sort((a, b) => a.ordinal - b.ordinal)
 		.map(task => <Task data={task} key={task.id} />)
 
-	const selectOnFocus = event => event.target.select()
+	const titleOnFocus = event => listTitle.current.setSelectionRange(0, 9999)
 
-	const disableForm = event => event.preventDefault()
+	const disableFormOnSubmit = event => event.preventDefault()
+
+	const titleOnKeyPress = event => {
+		const code = event.keyCode ? event.keyCode : event.which
+
+		if (code === 13) {
+			event.target.blur()
+		}
+	}
 
 	return (
 		<div className={`list-item item-${ordinal}`}>
-			<form onSubmit={disableForm}>
+			<form onSubmit={disableFormOnSubmit} autoComplete="off">
 				<input
 					type="text"
 					name="title"
+					spellCheck="false"
+					ref={listTitle}
 					value={title}
-					id={id}
+					data-id={id}
+					onFocus={titleOnFocus}
 					onChange={props.updateListTitle}
-					onFocus={selectOnFocus}
+					onKeyPress={titleOnKeyPress}
 				/>
 			</form>
 
