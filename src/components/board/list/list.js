@@ -38,6 +38,8 @@ function List(props) {
 
 	return (
 		<div className={`list-item item-${ordinal}`}>
+			<h2 className="sr">{title}</h2>
+
 			<form onSubmit={disableFormOnSubmit} autoComplete="off">
 				<input
 					type="text"
