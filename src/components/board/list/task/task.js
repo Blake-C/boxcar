@@ -1,27 +1,18 @@
 import React from 'react'
+import { format, isToday, isTomorrow, isPast } from 'date-fns'
 
-function getMonth(month) {
+function getMonthAbbr(month) {
 	let monthAbbreviation = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 	return monthAbbreviation[month]
 }
 
 function getDateStatus(date) {
-	const dueDate = date.setHours(12, 0, 0, 0)
-	let today = new Date()
-	let tomorrow = new Date()
-
-	tomorrow.setDate(today.getDate() + 1)
-	tomorrow.setHours(12, 0, 0, 0)
-	today = today.setHours(12, 0, 0, 0)
-
-	// console.log(dueDate, today, tomorrow)
-
-	if (dueDate < today) {
+	if (isPast(date)) {
 		return 'past-due'
-	} else if (dueDate < tomorrow || dueDate < today) {
+	} else if (isToday(date)) {
 		return 'due'
-	} else if (dueDate <= tomorrow) {
+	} else if (isTomorrow(date)) {
 		return 'coming-up'
 	} else {
 		return ''
@@ -33,19 +24,21 @@ function Dates(props) {
 		return ''
 	}
 
-	const dateFormatted = new Date(props.date)
+	const dateFormatted = new Date(format(props.date))
 	const today = new Date()
-	const dateClass = props.status ? getDateStatus(dateFormatted) : ''
+	const dateStatus = props.status ? getDateStatus(dateFormatted) : ''
+	const monthAbbr = getMonthAbbr(dateFormatted.getMonth())
+	const dayPadded = String(dateFormatted.getDate()).padStart(2, '0')
+	const taskYear = dateFormatted.getFullYear()
+	let yearAbbr = ''
+
+	if (taskYear > today.getFullYear()) {
+		yearAbbr = ", '" + taskYear.toString().substr(2, 2)
+	}
 
 	return (
-		<p className={`date ${dateClass}`}>
-			{getMonth(dateFormatted.getMonth())} {String(dateFormatted.getDate()).padStart(2, '0')}
-			{dateFormatted.getFullYear() > today.getFullYear()
-				? `, '${dateFormatted
-						.getFullYear()
-						.toString()
-						.substr(2, 2)}`
-				: ''}
+		<p className={`date ${dateStatus}`}>
+			{monthAbbr} {dayPadded} {yearAbbr}
 		</p>
 	)
 }
@@ -56,15 +49,21 @@ Dates.defaultProps = {
 
 function Task(props) {
 	const { title, id, dueDate, startDate } = props.data
+	let dates = ''
 
-	return (
-		<div className={`task-item task-item-${id} clearfix`}>
+	if (startDate || dueDate) {
+		dates = (
 			<div className="date-container">
 				<Dates date={startDate} status={false} />
 				<Dates date={dueDate} />
 			</div>
+		)
+	}
 
+	return (
+		<div className={`task-item task-item-${id} clearfix`}>
 			<h3>{title}</h3>
+			{dates}
 		</div>
 	)
 }
