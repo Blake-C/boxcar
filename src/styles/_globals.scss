@@ -10,17 +10,17 @@ body {
 *,
 :after,
 :before {
-	box-sizing: inherit;
+	box-sizing: border-box;
 }
 
 .clearfix {
 	&:after,
 	&:before {
-		display: table;
+		clear: both;
 		content: '';
+		display: table;
 		flex-basis: 0%;
 		order: 1;
-		clear: both;
 	}
 }
 

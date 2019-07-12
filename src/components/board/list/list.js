@@ -1,28 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Task from './task/task'
 
-function listTiitleHandleOnClick() {
-	document.execCommand('selectAll', false, null)
-}
-
-function addAnotherTask(event) {
-	event.preventDefault()
-
-	alert('New Task')
-}
-
-function listTitleKeyPress(event) {
-	if (event.which === 13) {
-		event.preventDefault()
-	}
-}
-
 function List(props) {
 	const { id, ordinal, title } = props.data
-
-	const listTitleBlur = () => {
-		alert('Title Change')
-	}
 
 	// Fetch Tasks
 	const [tasks, setTask] = useState([])
@@ -43,20 +23,26 @@ function List(props) {
 		.sort((a, b) => a.ordinal - b.ordinal)
 		.map(task => <Task data={task} key={task.id} />)
 
+	const selectOnFocus = event => event.target.select()
+
+	const disableForm = event => event.preventDefault()
+
 	return (
 		<div className={`list-item item-${ordinal}`}>
-			<h2
-				contentEditable="true"
-				onClick={listTiitleHandleOnClick}
-				onBlur={listTitleBlur}
-				onKeyPress={listTitleKeyPress}
-			>
-				{title}
-			</h2>
+			<form onSubmit={disableForm}>
+				<input
+					type="text"
+					name="title"
+					value={title}
+					id={id}
+					onChange={props.updateListTitle}
+					onFocus={selectOnFocus}
+				/>
+			</form>
 
 			<div className="tasks-container">{tasksFiltered}</div>
 
-			<a href="/" className="add-task-button" onClick={addAnotherTask}>
+			<a href="/" className="add-task-button">
 				+ Add another task
 			</a>
 		</div>

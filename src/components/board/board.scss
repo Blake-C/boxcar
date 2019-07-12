@@ -25,15 +25,18 @@
 	border-radius: 3px;
 	max-height: calc(100vh);
 	overflow: hidden;
-	padding: 5px 10px 0 10px;
+	padding: 5px 10px 0;
 	position: relative;
 
-	h2 {
+	input {
 		background-color: lighten($a, 30%);
+		border: 0;
+		cursor: pointer;
 		font-size: 0.8rem;
 		font-weight: bold;
 		margin: 0;
 		padding: 5px;
+		width: 100%;
 
 		&:focus {
 			background-color: white;
@@ -47,8 +50,8 @@
 
 .tasks-container {
 	-webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
-	overflow: scroll;
 	max-height: calc(100vh - 163px);
+	overflow: scroll;
 }
 
 .task-item {
@@ -59,10 +62,10 @@
 	position: relative;
 
 	h3 {
-		margin: 0;
 		font-size: 0.7rem;
 		font-weight: 500;
 		line-height: 1.5;
+		margin: 0;
 	}
 
 	p {
@@ -82,11 +85,11 @@
 
 	.date {
 		background-color: rgb(246, 246, 246);
-		border-radius: 3px;
 		border: 1px solid rgb(221, 221, 221);
+		border-radius: 3px;
 		font-size: 0.7rem;
 		margin: 0 0 0 2px;
-		padding: 0px 5px;
+		padding: 0 5px;
 
 		&.coming-up {
 			background-color: rgb(131, 216, 255);
