@@ -38,7 +38,8 @@ function Dates(props) {
 
 	return (
 		<p className={`date ${dateStatus}`}>
-			{monthAbbr} {dayPadded} {yearAbbr}
+			{monthAbbr} {dayPadded}
+			{yearAbbr}
 		</p>
 	)
 }
