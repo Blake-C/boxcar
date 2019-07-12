@@ -12,7 +12,7 @@ function Board(props) {
 		<React.Fragment>
 			<h1>{props.title}</h1>
 
-			<div className={`boards ${featuredClass}`} cover>
+			<div className={`boards ${featuredClass}`}>
 				{boards_list.map(board => {
 					const style = {
 						backgroundImage: `url(/assets/images/${board.backgroundImage})`,
@@ -20,7 +20,7 @@ function Board(props) {
 
 					const item = (
 						<Link to={`/board/${board.id}`} key={board.id}>
-							<div className="board" style={style}>
+							<div className="board cover" style={style}>
 								<h2>{board.title}</h2>
 							</div>
 						</Link>
