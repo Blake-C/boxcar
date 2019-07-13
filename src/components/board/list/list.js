@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect } from 'react'
 import Task from './task/task'
 
 function List(props) {
@@ -75,8 +75,12 @@ function List(props) {
 	}
 
 	useEffect(() => {
-		newTaskFormRef.current.scrollIntoView()
+		newTaskFormRef.current.scrollIntoView({ behavior: 'smooth' })
 	}, [newTaskFormRef])
+
+	useLayoutEffect(() => {
+		newTaskRef.current.focus()
+	}, [newTaskRef])
 
 	const addNewTaskOnClick = () => {
 		const newTaskTitle = newTaskRef.current.value
@@ -96,7 +100,6 @@ function List(props) {
 		])
 
 		setNewTaskTitle([])
-		newTaskRef.current.focus()
 	}
 
 	const resetNewTaskOnClick = event => {
@@ -116,8 +119,6 @@ function List(props) {
 			taskForm: true,
 			tasksContainerBumper: false,
 		})
-		newTaskFormRef.current.scrollIntoView()
-		newTaskRef.current.focus()
 	}
 
 	return (
