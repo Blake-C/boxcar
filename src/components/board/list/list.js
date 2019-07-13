@@ -9,12 +9,15 @@ function List(props) {
 	const listTitleRef = React.createRef()
 	const newTaskRef = React.createRef()
 	const newTaskFormRef = React.createRef()
-	const showNewTaskFormButtonRef = React.createRef()
-	const tasksContainerRef = React.createRef()
 
 	// Fetch Tasks
 	const [tasks, setTask] = useState([])
 	const [newTaskTitle, setNewTaskTitle] = useState([])
+	const [elementState, setElementState] = useState({
+		createTaskButton: true,
+		taskForm: false,
+		tasksContainerBumper: true,
+	})
 
 	useEffect(() => {
 		fetchTask()
@@ -64,9 +67,11 @@ function List(props) {
 		if (code === 27) {
 			event.preventDefault()
 			setNewTaskTitle([])
-			newTaskFormRef.current.classList.toggle('hide')
-			showNewTaskFormButtonRef.current.classList.remove('hide')
-			tasksContainerRef.current.classList.add('bumper')
+			setElementState({
+				createTaskButton: true,
+				taskForm: false,
+				tasksContainerBumper: true,
+			})
 		}
 	}
 
@@ -98,18 +103,22 @@ function List(props) {
 	const resetNewTaskOnClick = event => {
 		setNewTaskTitle([])
 		event.target.blur()
-		newTaskFormRef.current.classList.toggle('hide')
-		showNewTaskFormButtonRef.current.classList.remove('hide')
-		tasksContainerRef.current.classList.add('bumper')
+		setElementState({
+			createTaskButton: true,
+			taskForm: false,
+			tasksContainerBumper: true,
+		})
 	}
 
 	const showNewTaskFormOnClick = event => {
 		event.preventDefault()
-		showNewTaskFormButtonRef.current.classList.add('hide')
-		newTaskFormRef.current.classList.remove('hide')
+		setElementState({
+			createTaskButton: false,
+			taskForm: true,
+			tasksContainerBumper: false,
+		})
 		newTaskFormRef.current.scrollIntoView()
 		newTaskRef.current.focus()
-		tasksContainerRef.current.classList.remove('bumper')
 	}
 
 	return (
@@ -131,14 +140,14 @@ function List(props) {
 				/>
 			</form>
 
-			<div className="tasks-container bumper" ref={tasksContainerRef}>
+			<div className={`tasks-container ${elementState.tasksContainerBumper ? 'bumper' : ''}`}>
 				{tasksFiltered}
 
 				<form
 					onSubmit={disableFormOnSubmit}
 					ref={newTaskFormRef}
 					autoComplete="off"
-					className="new-task-form hide"
+					className={`new-task-form ${elementState.taskForm ? '' : 'hide'}`}
 				>
 					<textarea
 						rows="3"
@@ -162,7 +171,10 @@ function List(props) {
 				</form>
 			</div>
 
-			<button className="add-task-button" onClick={showNewTaskFormOnClick} ref={showNewTaskFormButtonRef}>
+			<button
+				className={`add-task-button ${elementState.createTaskButton ? '' : 'hide'}`}
+				onClick={showNewTaskFormOnClick}
+			>
 				+ Add another task
 			</button>
 		</div>
