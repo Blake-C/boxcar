@@ -55,12 +55,13 @@ $list-background-color: lighten($a, 30%);
 
 .tasks-container {
 	-webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
-	max-height: calc(100vh - 130px);
+	max-height: calc(100vh - 127px);
 	overflow: scroll;
 	padding: 0 10px;
 
 	&.bumper {
-		padding: 0 10px 33px;
+		margin-bottom: 33px;
+		max-height: calc(100vh - 160px);
 	}
 }
 
