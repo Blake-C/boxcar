@@ -43,7 +43,7 @@ function Board({ match }) {
 	const filterLists = lists
 		.filter(list => parseInt(list.boardId) === parseInt(match.params.id))
 		.sort((a, b) => a.ordinal - b.ordinal)
-		.map(list => <List data={list} key={list.id} updateListTitle={updateListTitle} />)
+		.map(list => <List data={list} key={list.id} boardId={match.params.id} updateListTitle={updateListTitle} />)
 
 	useEffect(() => {
 		document.title = `Board: ${board === undefined ? '' : board.title}`

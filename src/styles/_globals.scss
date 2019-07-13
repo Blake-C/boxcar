@@ -30,9 +30,21 @@ button,
 	border: 1px solid $c;
 	border-radius: 3px;
 	color: $white;
+	cursor: pointer;
 	display: inline-block;
+	font-size: 0.8rem;
 	padding: 5px 10px;
 	text-decoration: none;
+
+	&.green {
+		background-color: $green;
+		border: 1px solid $gray95;
+	}
+
+	&.red {
+		background-color: $red;
+		border: 1px solid $gray95;
+	}
 }
 
 .sr {
@@ -74,4 +86,8 @@ button,
 	@extend %cover;
 
 	background-position: center;
+}
+
+.hide {
+	display: none;
 }

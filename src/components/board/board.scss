@@ -1,4 +1,7 @@
 @import '../../styles/variables';
+@import '../../styles/helpers';
+
+$list-background-color: lighten($a, 30%);
 
 .board-bar {
 	background-color: lighten($c, 10%);
@@ -22,20 +25,20 @@
 }
 
 .list-item {
-	background-color: lighten($a, 30%);
+	background-color: $list-background-color;
 	border-radius: 3px;
 	max-height: calc(100vh);
 	overflow: hidden;
-	padding: 5px 10px 0;
+	padding: 5px 0 0;
 	position: relative;
 
-	input {
-		background-color: lighten($a, 30%);
+	.list-title-input {
+		background-color: $list-background-color;
 		border: 0;
 		cursor: pointer;
 		font-size: 0.8rem;
 		font-weight: bold;
-		line-height: 1;
+		line-height: 1.5;
 		margin: 0;
 		padding: 5px;
 		width: 100%;
@@ -52,8 +55,13 @@
 
 .tasks-container {
 	-webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
-	max-height: calc(100vh - 163px);
+	max-height: calc(100vh - 130px);
 	overflow: scroll;
+	padding: 0 10px;
+
+	&.bumper {
+		padding: 0 10px 33px;
+	}
 }
 
 .task-item {
@@ -98,34 +106,76 @@
 		padding: 3px 5px;
 
 		&.coming-up {
-			background-color: rgb(238, 255, 0);
+			background-color: $yellow;
 		}
 
 		&.due {
-			background-color: rgb(255, 0, 0);
+			background-color: $orange;
 			color: $white;
 		}
 
 		&.past-due {
-			background-color: rgb(148, 42, 42);
+			background-color: $red;
 			color: $white;
 		}
 	}
 }
 
 .add-task-button {
+	background-color: $list-background-color;
+	border: 0;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
+	bottom: 0;
 	color: $a;
 	display: block;
 	font-size: 0.7rem;
-	margin: 0 -10px;
+	left: 0;
+	margin: 0;
+	outline: none;
 	padding: 10px;
+	position: absolute;
+	right: 0;
+	text-align: left;
 	text-decoration: none;
 	transition: background-color 0.3s, color 0.3s;
+	width: 100%;
 
 	&:hover {
 		background-color: lighten($a, 10%);
 		color: $white;
+	}
+}
+
+.new-task-form {
+	margin-bottom: 10px;
+	width: 100%;
+
+	button {
+		margin-right: 5px;
+	}
+
+	.new-task-form-textarea {
+		@include placeholder {
+			font-size: 0.8rem;
+			padding: 3px 0;
+		}
+
+		border: 0;
+		border-radius: 3px;
+		font-size: 0.8rem;
+		margin-bottom: 5px;
+		outline: 0;
+		padding: 8px 10px;
+		resize: none;
+		white-space: pre-line;
+		width: 100%;
+
+		&:focus {
+			background-color: $white;
+			border: 2px solid #3a556c;
+			outline: none;
+			padding: 6px 8px;
+		}
 	}
 }

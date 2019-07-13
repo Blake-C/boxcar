@@ -11,3 +11,21 @@
 	background-repeat: no-repeat;
 	background-size: cover;
 } // to use: @extend %cover;
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+
+	&:-moz-placeholder {
+		@content;
+	}
+
+	&::-moz-placeholder {
+		@content;
+	}
+
+	&:-ms-input-placeholder {
+		@content;
+	}
+} // to use: @include placeholder {}
