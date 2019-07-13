@@ -92,6 +92,7 @@ function List(props) {
 		])
 
 		setNewTaskTitle([])
+		newTaskRef.current.focus()
 	}
 
 	const resetNewTaskOnClick = event => {
