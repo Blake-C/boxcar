@@ -6,7 +6,6 @@ function List(props) {
 	const { id: listId, ordinal, title: listTitle } = props.data
 
 	// Create references
-	const listTitleRef = React.createRef()
 	const newTaskRef = React.createRef()
 	const newTaskFormRef = React.createRef()
 
@@ -36,7 +35,7 @@ function List(props) {
 		.map(task => <Task data={task} key={task.id} />)
 
 	// Auto select list title on focus
-	const titleOnFocus = () => listTitleRef.current.setSelectionRange(0, 9999)
+	const titleOnFocus = event => event.target.setSelectionRange(0, 9999)
 
 	// Leave input field on return
 	const leaveInputOnReturn = event => {
@@ -131,7 +130,6 @@ function List(props) {
 					name="title"
 					className="list-title-input"
 					spellCheck="false"
-					ref={listTitleRef}
 					value={listTitle}
 					data-id={listId}
 					onFocus={titleOnFocus}
