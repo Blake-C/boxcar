@@ -66,7 +66,7 @@ $list-background-color: lighten($a, 30%);
 		width: 100%;
 
 		&:focus {
-			background-color: white;
+			background-color: $white;
 			font-weight: bold;
 		}
 	}
@@ -116,8 +116,8 @@ $list-background-color: lighten($a, 30%);
 	}
 
 	.date {
-		background-color: rgb(246, 246, 246);
-		border: 1px solid rgb(202, 200, 200);
+		background-color: $gray246;
+		border: 1px solid $gray200;
 		border-radius: 5px;
 		font-size: 0.7rem;
 		margin: 0 0 0 2px;
