@@ -28,9 +28,16 @@ $list-background-color: lighten($a, 30%);
 .lists-container {
 	align-items: flex-start;
 	display: grid;
-	grid-template-columns: repeat(100000, 250px);
+	grid-template-columns: repeat(100, 250px);
 	grid-gap: 1rem;
 	overflow: scroll;
+	padding: 15px;
+
+	&:after {
+		content: '';
+		height: 100%;
+		width: 1px;
+	}
 }
 
 .list-item {
