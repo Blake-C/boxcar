@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import Task from './task/task'
+import TextareaAutosize from 'react-autosize-textarea'
 
 function List(props) {
 	// Get board data from props
 	const { id: listId, ordinal, title: listTitle } = props.data
 
 	// Create references
-	const newTaskRef = React.createRef()
+	const newTaskRef = useRef()
 	const newTaskFormRef = React.createRef()
 
 	// Fetch Tasks
@@ -41,7 +42,9 @@ function List(props) {
 	const leaveInputOnReturn = event => {
 		const code = event.keyCode ? event.keyCode : event.which
 
+		// Return
 		if (code === 13) {
+			event.preventDefault()
 			event.target.blur()
 		}
 	}
@@ -58,11 +61,13 @@ function List(props) {
 	const addTaskOnReturn = event => {
 		const code = event.keyCode ? event.keyCode : event.which
 
+		// Return
 		if (code === 13) {
 			event.preventDefault()
 			addNewTaskOnClick()
 		}
 
+		// Escape
 		if (code === 27) {
 			event.preventDefault()
 			setNewTaskTitle([])
@@ -75,7 +80,7 @@ function List(props) {
 	}
 
 	useEffect(() => {
-		newTaskFormRef.current.scrollIntoView({ behavior: 'smooth' })
+		newTaskFormRef.current.scrollIntoView()
 	}, [newTaskFormRef])
 
 	useLayoutEffect(() => {
@@ -126,8 +131,8 @@ function List(props) {
 			<h2 className="sr">{listTitle}</h2>
 
 			<form onSubmit={disableFormOnSubmit} autoComplete="off" className="list-title-form">
-				<input
-					type="text"
+				<TextareaAutosize
+					rows={1}
 					name="title"
 					className="list-title-input"
 					spellCheck="false"
@@ -148,8 +153,8 @@ function List(props) {
 					autoComplete="off"
 					className={`new-task-form ${elementState.taskForm ? '' : 'hide'}`}
 				>
-					<textarea
-						rows="3"
+					<TextareaAutosize
+						rows={3}
 						name="newTask"
 						spellCheck="false"
 						placeholder="Enter title for this task..."
