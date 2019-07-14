@@ -177,17 +177,12 @@ $list-background-color: lighten($a, 30%);
 		border-radius: 3px;
 		font-size: 0.8rem;
 		margin-bottom: 5px;
-		outline: 0;
 		padding: 8px 10px;
 		resize: none;
-		white-space: pre-line;
 		width: 100%;
 
 		&:focus {
 			background-color: $white;
-			border: 2px solid #3a556c;
-			outline: none;
-			padding: 6px 8px;
 		}
 	}
 }
