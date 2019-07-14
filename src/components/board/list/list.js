@@ -16,7 +16,6 @@ function List(props) {
 	const [elementState, setElementState] = useState({
 		createTaskButton: true,
 		taskForm: false,
-		tasksContainerBumper: true,
 	})
 
 	useEffect(() => {
@@ -74,7 +73,6 @@ function List(props) {
 			setElementState({
 				createTaskButton: true,
 				taskForm: false,
-				tasksContainerBumper: true,
 			})
 		}
 	}
@@ -113,7 +111,6 @@ function List(props) {
 		setElementState({
 			createTaskButton: true,
 			taskForm: false,
-			tasksContainerBumper: true,
 		})
 	}
 
@@ -122,7 +119,6 @@ function List(props) {
 		setElementState({
 			createTaskButton: false,
 			taskForm: true,
-			tasksContainerBumper: false,
 		})
 	}
 
@@ -142,7 +138,7 @@ function List(props) {
 				/>
 			</form>
 
-			<div className={`tasks-container ${elementState.tasksContainerBumper ? 'bumper' : ''}`}>
+			<div className="tasks-container">
 				{tasksFiltered}
 
 				<form
