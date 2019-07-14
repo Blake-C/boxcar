@@ -6,21 +6,40 @@ TODO:
 		if current time is with 24 hrs of due date = coming-up
 		if current time is equal to due date = due
 		if current time is greater than due date = past-due
-	☐ Add ability to create new task and manage its state
-	☐ Find a better way to call board details into board page
 	☐ Create database
 	☐ Create API (Boards/Lists/Tasks)
-		Create
-		Read
-		Update
-		Delete
-	☐ Build custom calendar view for tasks
-	☐ Build chat into tasks detail page
-	☐ Build Tasks new task state management
-		☐ Create new task form
+		Create, Read, Update, Delete
+
+		We will need to create the database first so that we can then create an API that will make our queries easier to make. We don't want to be filtering/ordering client side.
+	☐ Add tasks state management
+		✔ Create new task form @done(Sat. 07/13/2019 - 04:56:20 PM)
 			Show on button click
 			Have submit button
 			Have cancel button
 			Enter will submit form and create new task
-		☐ Add new task to state
+		✔ Add new task to state @done(Sat. 07/13/2019 - 04:56:18 PM)
 		☐ Think about how we want the task detail view to work
+	☐ Create add new list button
+		☐ Create button
+			Add new list
+			Submit form
+			Cancel form
+		☐ Add list to state
+		☐ See if we can reuse the create new task form
+	☐ Task detail view
+		☐ Fields
+			Title
+			Description
+			Due Date
+			Start Date
+			Duplicate
+			Delete/Archive
+			Move
+		☐ Chat messaging
+	☐ Build custom calendar view for tasks
+
+
+Issues:
+	☐ The new task form jumps as you add the new task.
+	☐ Figure out how to create unique keys for new tasks as they are added.
+	☐ Find a better way to call board details into board page
