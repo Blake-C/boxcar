@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Task from './task/task'
 import TextareaAutosize from 'react-textarea-autosize'
 
@@ -81,10 +81,6 @@ function List(props) {
 		newTaskFormRef.current.scrollIntoView()
 	}, [newTaskFormRef])
 
-	useLayoutEffect(() => {
-		newTaskRef.current.focus()
-	}, [newTaskRef])
-
 	const addNewTaskOnClick = () => {
 		const newTaskTitle = newTaskRef.current.value
 
@@ -101,6 +97,10 @@ function List(props) {
 				title: newTaskTitle,
 			},
 		])
+
+		setTimeout(() => {
+			newTaskRef.current.focus()
+		}, 50)
 
 		setNewTaskTitle([])
 	}
@@ -120,6 +120,9 @@ function List(props) {
 			createTaskButton: false,
 			taskForm: true,
 		})
+		setTimeout(() => {
+			newTaskRef.current.focus()
+		}, 50)
 	}
 
 	return (
