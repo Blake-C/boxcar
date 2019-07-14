@@ -177,7 +177,7 @@
 		"title": "19-FUB-10020: Campaign Development",
 		"description": "Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.",
 		"labels": "Maroon",
-		"dueDate": "2019-07-06 05:09:06",
+		"dueDate": "2019-07-017 05:09:06",
 		"startDate": "2019-07-01 00:50:00",
 		"ordinal": 14
 	},
@@ -448,7 +448,7 @@
 		"title": "18-SCHREF-BSA-09924 - Colleton Medical Center Robot Event Highlight (Blog Post)",
 		"description": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
 		"labels": "Khaki",
-		"dueDate": "2019-07-08 17:44:02",
+		"dueDate": "2019-07-15 17:44:02",
 		"startDate": "2019-07-05 05:12:33",
 		"ordinal": 35
 	},
@@ -500,7 +500,7 @@
 		"title": "19-PLF-10208 - Revisions",
 		"description": "Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum.",
 		"labels": "Puce",
-		"dueDate": "2019-07-13 12:28:45",
+		"dueDate": "2019-07-14 12:28:45",
 		"startDate": "2019-06-25 15:16:05",
 		"ordinal": 39
 	},
