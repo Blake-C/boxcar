@@ -12,7 +12,7 @@ function List(props) {
 
 	// Fetch Tasks
 	const [tasks, setTask] = useState([])
-	const [newTaskTitle, setNewTaskTitle] = useState([])
+	const [newTaskTitle, setNewTaskTitle] = useState('')
 	const [elementState, setElementState] = useState({
 		createTaskButton: true,
 		taskForm: false,
@@ -69,7 +69,7 @@ function List(props) {
 		// Escape
 		if (code === 27) {
 			event.preventDefault()
-			setNewTaskTitle([])
+			setNewTaskTitle('')
 			setElementState({
 				createTaskButton: true,
 				taskForm: false,
@@ -102,11 +102,11 @@ function List(props) {
 			newTaskRef.current.focus()
 		}, 50)
 
-		setNewTaskTitle([])
+		setNewTaskTitle('')
 	}
 
 	const resetNewTaskOnClick = event => {
-		setNewTaskTitle([])
+		setNewTaskTitle('')
 		event.target.blur()
 		setElementState({
 			createTaskButton: true,
