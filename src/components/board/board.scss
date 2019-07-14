@@ -3,6 +3,15 @@
 
 $list-background-color: lighten($a, 30%);
 
+.list-view {
+	.app {
+		display: grid;
+		grid-template-rows: auto auto 1fr;
+		height: 100vh;
+		overflow: hidden;
+	}
+}
+
 .board-bar {
 	background-color: lighten($c, 10%);
 	color: $white;
@@ -27,9 +36,12 @@ $list-background-color: lighten($a, 30%);
 .list-item {
 	background-color: $list-background-color;
 	border-radius: 3px;
-	max-height: calc(100vh);
-	overflow: hidden;
-	padding: 5px 0 0;
+	display: grid;
+	grid-template-rows: auto 1fr auto;
+	max-height: 100%;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	padding: 0;
 	position: relative;
 
 	&:first-child {
@@ -37,7 +49,7 @@ $list-background-color: lighten($a, 30%);
 	}
 
 	.list-title-form {
-		padding: 0 10px;
+		padding: 5px 10px 0;
 	}
 
 	.list-title-input {
@@ -61,15 +73,8 @@ $list-background-color: lighten($a, 30%);
 }
 
 .tasks-container {
-	-webkit-overflow-scrolling: touch; // sass-lint:disable-line no-vendor-prefixes
-	max-height: calc(100vh - 132px);
 	overflow: scroll;
 	padding: 0 10px;
-
-	&.bumper {
-		margin-bottom: 33px;
-		max-height: calc(100vh - 165px);
-	}
 }
 
 .task-item {
@@ -138,20 +143,15 @@ $list-background-color: lighten($a, 30%);
 	border: 0;
 	border-top-left-radius: 3px;
 	border-top-right-radius: 3px;
-	bottom: 0;
 	color: $a;
 	display: block;
 	font-size: 0.7rem;
-	left: 0;
 	margin: 0;
 	outline: none;
 	padding: 10px;
-	position: absolute;
-	right: 0;
 	text-align: left;
 	text-decoration: none;
 	transition: background-color 0.3s, color 0.3s;
-	width: 100%;
 
 	&:hover {
 		background-color: lighten($a, 10%);

@@ -51,13 +51,13 @@ function Board({ match }) {
 		if (undefined !== board && '' !== board.backgroundImageLarge && undefined !== board.backgroundImageLarge) {
 			document.body.style.backgroundImage = `url(/assets/images/${board.backgroundImageLarge})`
 		}
-		document.body.classList.add('cover')
+		document.body.classList.add('cover', 'list-view')
 
 		return () => {
 			document.title = ''
 			document.body.style.backgroundColor = ''
 			document.body.style.backgroundImage = ''
-			document.body.classList.remove('cover')
+			document.body.classList.remove('cover', 'list-view')
 		}
 	}, [board])
 
