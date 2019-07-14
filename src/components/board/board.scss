@@ -75,6 +75,7 @@ $list-background-color: lighten($a, 30%);
 .tasks-container {
 	overflow: scroll;
 	padding: 0 10px;
+	transform: translateZ(0);
 }
 
 .task-item {
