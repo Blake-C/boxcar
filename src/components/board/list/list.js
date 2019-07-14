@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useLayoutEffect, useRef } from 'react'
 import Task from './task/task'
-import TextareaAutosize from 'react-autosize-textarea'
+import TextareaAutosize from 'react-textarea-autosize'
 
 function List(props) {
 	// Get board data from props
@@ -154,12 +154,12 @@ function List(props) {
 					className={`new-task-form ${elementState.taskForm ? '' : 'hide'}`}
 				>
 					<TextareaAutosize
-						rows={3}
+						minRows={3}
 						name="newTask"
 						spellCheck="false"
 						placeholder="Enter title for this task..."
 						value={newTaskTitle}
-						ref={newTaskRef}
+						inputRef={newTaskRef}
 						onChange={addTaskTitleOnChange}
 						onKeyDown={addTaskOnReturn}
 						className="new-task-form-textarea"
