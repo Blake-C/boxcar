@@ -46,37 +46,5 @@
 		"title": "✅ Done",
 		"status": "active",
 		"ordinal": 2
-	},
-	{
-		"id": 7,
-		"userId": 1,
-		"boardId": 1,
-		"title": "✅ Done",
-		"status": "active",
-		"ordinal": 2
-	},
-	{
-		"id": 8,
-		"userId": 1,
-		"boardId": 1,
-		"title": "✅ Done",
-		"status": "active",
-		"ordinal": 2
-	},
-	{
-		"id": 9,
-		"userId": 1,
-		"boardId": 1,
-		"title": "✅ Done",
-		"status": "active",
-		"ordinal": 2
-	},
-	{
-		"id": 10,
-		"userId": 1,
-		"boardId": 1,
-		"title": "✅ Done",
-		"status": "active",
-		"ordinal": 2
 	}
 ]

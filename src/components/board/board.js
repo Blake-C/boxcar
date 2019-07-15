@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import TextareaAutosize from 'react-textarea-autosize'
 import List from './list/list'
 import './board.scss'
 
@@ -61,11 +62,30 @@ function Board({ match }) {
 		}
 	}, [board])
 
+	const disableFormOnSubmit = event => event.preventDefault()
+
 	return (
 		<React.Fragment>
 			<div className="board-bar">{board === undefined ? '' : <h1>{board.title}</h1>}</div>
 
-			<div className="lists-container">{filterLists}</div>
+			<div className="lists-container">
+				{filterLists}
+
+				<form onSubmit={disableFormOnSubmit} autoComplete="off" className="new-list-form">
+					<TextareaAutosize
+						rows={3}
+						name="newList"
+						className="new-list-input"
+						spellCheck="false"
+						placeholder="Add another list"
+						// value={}
+						// data-id={}
+						// onFocus={}
+						// onChange={}
+						// onKeyDown={}
+					/>
+				</form>
+			</div>
 		</React.Fragment>
 	)
 }
