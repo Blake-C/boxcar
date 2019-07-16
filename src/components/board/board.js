@@ -16,8 +16,8 @@ function Board({ match }) {
 	const [boards, setBoards] = useState([])
 	const [newListTitle, setNewListTitle] = useState('')
 	const [elementState, setElementState] = useState({
-		createTaskButton: true,
-		taskForm: false,
+		createListButton: true,
+		listForm: false,
 	})
 
 	const fetchLists = async () => {
@@ -72,11 +72,11 @@ function Board({ match }) {
 
 	const disableFormOnSubmit = event => event.preventDefault()
 
-	const addTaskTitleOnChange = event => {
+	const addListTitleOnChange = event => {
 		setNewListTitle(event.target.value)
 	}
 
-	// Add task to state on input return
+	// Add list to state on input return
 	const addListOnReturn = event => {
 		const code = event.keyCode ? event.keyCode : event.which
 
@@ -91,8 +91,8 @@ function Board({ match }) {
 			event.preventDefault()
 			setNewListTitle('')
 			setElementState({
-				createTaskButton: true,
-				taskForm: false,
+				createListButton: true,
+				listForm: false,
 			})
 		}
 	}
@@ -123,16 +123,16 @@ function Board({ match }) {
 		setNewListTitle('')
 		event.target.blur()
 		setElementState({
-			createTaskButton: true,
-			taskForm: false,
+			createListButton: true,
+			listForm: false,
 		})
 	}
 
 	const showNewListFormOnClick = event => {
 		event.preventDefault()
 		setElementState({
-			createTaskButton: false,
-			taskForm: true,
+			createListButton: false,
+			listForm: true,
 		})
 		setTimeout(() => {
 			newListRef.current.focus()
@@ -150,7 +150,7 @@ function Board({ match }) {
 					onSubmit={disableFormOnSubmit}
 					ref={newListFormRef}
 					autoComplete="off"
-					className={`new-list-form ${elementState.taskForm ? '' : 'hide'}`}
+					className={`new-list-form ${elementState.listForm ? '' : 'hide'}`}
 				>
 					<TextareaAutosize
 						rows={3}
@@ -160,7 +160,7 @@ function Board({ match }) {
 						placeholder="Enter list title..."
 						value={newListTitle}
 						inputRef={newListRef}
-						onChange={addTaskTitleOnChange}
+						onChange={addListTitleOnChange}
 						onKeyDown={addListOnReturn}
 					/>
 
@@ -174,7 +174,7 @@ function Board({ match }) {
 				</form>
 
 				<button
-					className={`add-list-button ${elementState.createTaskButton ? '' : 'hide'}`}
+					className={`add-list-button ${elementState.createListButton ? '' : 'hide'}`}
 					onClick={showNewListFormOnClick}
 				>
 					+ Add another list
