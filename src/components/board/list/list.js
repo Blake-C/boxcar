@@ -153,13 +153,13 @@ function List(props) {
 					<TextareaAutosize
 						minRows={3}
 						name="newTask"
+						className="new-task-form-textarea"
 						spellCheck="false"
 						placeholder="Enter title for this task..."
 						value={newTaskTitle}
 						inputRef={newTaskRef}
 						onChange={addTaskTitleOnChange}
 						onKeyDown={addTaskOnReturn}
-						className="new-task-form-textarea"
 					/>
 
 					<button type="button" className="green" onClick={addNewTaskOnClick}>

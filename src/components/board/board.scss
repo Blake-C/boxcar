@@ -194,3 +194,29 @@ $list-background-color: lighten($a, 30%);
 		}
 	}
 }
+
+.new-list-form {
+	background-color: rgba($white, 0.7);
+	border-radius: 3px;
+	padding: 10px;
+
+	.new-list-textarea {
+		@include placeholder {
+			font-weight: 500;
+		}
+
+		border: 0;
+		border-radius: 3px;
+		font-size: 0.8rem;
+		font-weight: bold;
+		line-height: 1.5;
+		margin: 0 0 5px;
+		padding: 2px 3px;
+		resize: none;
+		width: 100%;
+	}
+
+	button {
+		margin-right: 5px;
+	}
+}
