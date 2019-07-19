@@ -5,7 +5,6 @@ import './board.scss'
 
 function Board({ match }) {
 	const newListRef = useRef()
-	const newListFormRef = React.createRef()
 
 	useEffect(() => {
 		fetchLists()
@@ -148,7 +147,6 @@ function Board({ match }) {
 
 				<form
 					onSubmit={disableFormOnSubmit}
-					ref={newListFormRef}
 					autoComplete="off"
 					className={`new-list-form ${elementState.listForm ? '' : 'hide'}`}
 				>
