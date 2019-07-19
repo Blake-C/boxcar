@@ -40,6 +40,38 @@ $list-background-color: lighten($a, 30%);
 	}
 }
 
+.master-list-class {
+	&.show-form-button {
+		width: 100%;
+	}
+
+	button {
+		margin-right: 5px;
+	}
+
+	.new-item-form {
+		background-color: rgba($white, 0.7);
+		border-radius: 3px;
+		padding: 10px;
+	}
+
+	.new-item-textarea {
+		@include placeholder {
+			font-weight: 500;
+		}
+
+		border: 0;
+		border-radius: 3px;
+		font-size: 0.8rem;
+		font-weight: bold;
+		line-height: 1.5;
+		margin: 0 0 5px;
+		padding: 2px 3px;
+		resize: none;
+		width: 100%;
+	}
+}
+
 .list-item {
 	background-color: $list-background-color;
 	border-radius: 3px;
@@ -79,10 +111,60 @@ $list-background-color: lighten($a, 30%);
 	}
 }
 
-.tasks-container {
-	overflow: scroll;
-	padding: 2px 10px;
-	transform: translateZ(0);
+.master-task-class {
+	&.input-form-container {
+		overflow: scroll;
+		padding: 2px 10px;
+		transform: translateZ(0);
+	}
+
+	&.show-form-button {
+		background-color: $list-background-color;
+		border: 0;
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+		color: $a;
+		font-size: 0.7rem;
+		margin: 0;
+		outline: none;
+		padding: 10px;
+		text-align: left;
+		text-decoration: none;
+		transition: background-color 0.3s, color 0.3s;
+
+		&:hover {
+			background-color: lighten($a, 10%);
+			color: $white;
+		}
+	}
+
+	button {
+		margin-right: 5px;
+	}
+
+	.new-item-form {
+		margin-bottom: 10px;
+		width: 100%;
+	}
+
+	.new-item-textarea {
+		@include placeholder {
+			font-size: 0.8rem;
+			padding: 3px 0;
+		}
+
+		border: 0;
+		border-radius: 3px;
+		font-size: 0.8rem;
+		margin-bottom: 5px;
+		padding: 8px 10px;
+		resize: none;
+		width: 100%;
+
+		&:focus {
+			background-color: $white;
+		}
+	}
 }
 
 .task-item {
@@ -143,80 +225,5 @@ $list-background-color: lighten($a, 30%);
 			background-color: $red;
 			color: $white;
 		}
-	}
-}
-
-.add-task-button {
-	background-color: $list-background-color;
-	border: 0;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-	color: $a;
-	display: block;
-	font-size: 0.7rem;
-	margin: 0;
-	outline: none;
-	padding: 10px;
-	text-align: left;
-	text-decoration: none;
-	transition: background-color 0.3s, color 0.3s;
-
-	&:hover {
-		background-color: lighten($a, 10%);
-		color: $white;
-	}
-}
-
-.new-task-form {
-	margin-bottom: 10px;
-	width: 100%;
-
-	button {
-		margin-right: 5px;
-	}
-
-	.new-task-form-textarea {
-		@include placeholder {
-			font-size: 0.8rem;
-			padding: 3px 0;
-		}
-
-		border: 0;
-		border-radius: 3px;
-		font-size: 0.8rem;
-		margin-bottom: 5px;
-		padding: 8px 10px;
-		resize: none;
-		width: 100%;
-
-		&:focus {
-			background-color: $white;
-		}
-	}
-}
-
-.new-list-form {
-	background-color: rgba($white, 0.7);
-	border-radius: 3px;
-	padding: 10px;
-
-	.new-list-textarea {
-		@include placeholder {
-			font-weight: 500;
-		}
-
-		border: 0;
-		border-radius: 3px;
-		font-size: 0.8rem;
-		font-weight: bold;
-		line-height: 1.5;
-		margin: 0 0 5px;
-		padding: 2px 3px;
-		resize: none;
-		width: 100%;
-	}
-
-	button {
-		margin-right: 5px;
 	}
 }

@@ -1,22 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react'
-import Task from './task/task'
+import React, { useState, useEffect } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
+import Task from './task/task'
+import InputForm from '../inputForm'
 
 function List(props) {
 	// Get board data from props
 	const { id: listId, ordinal, title: listTitle } = props.data
 
-	// Create references
-	const newTaskRef = useRef()
-	const newTaskFormRef = React.createRef()
-
 	// Fetch Tasks
 	const [tasks, setTask] = useState([])
-	const [newTaskTitle, setNewTaskTitle] = useState('')
-	const [elementState, setElementState] = useState({
-		createTaskButton: true,
-		taskForm: false,
-	})
 
 	useEffect(() => {
 		fetchTask()
@@ -51,78 +43,11 @@ function List(props) {
 	// Disable form submission
 	const disableFormOnSubmit = event => event.preventDefault()
 
-	// Add new task title to input field state
-	const addTaskTitleOnChange = event => {
-		setNewTaskTitle(event.target.value)
-	}
-
-	// Add task to state on input return
-	const addTaskOnReturn = event => {
-		const code = event.keyCode ? event.keyCode : event.which
-
-		// Return
-		if (code === 13) {
-			event.preventDefault()
-			addNewTaskOnClick()
-		}
-
-		// Escape
-		if (code === 27) {
-			event.preventDefault()
-			setNewTaskTitle('')
-			setElementState({
-				createTaskButton: true,
-				taskForm: false,
-			})
-		}
-	}
-
-	useEffect(() => {
-		newTaskFormRef.current.scrollIntoView()
-	}, [newTaskFormRef])
-
-	const addNewTaskOnClick = () => {
-		const newTaskTitle = newTaskRef.current.value
-
-		if (newTaskTitle === '') return
-
-		setTask(prevState => [
-			...prevState,
-			{
-				id: Date.now(),
-				userId: 1,
-				boardId: props.boardId,
-				listId: listId,
-				status: 'active',
-				title: newTaskTitle,
-			},
-		])
-
-		setTimeout(() => {
-			newTaskRef.current.focus()
-		}, 50)
-
-		setNewTaskTitle('')
-	}
-
-	const resetNewTaskOnClick = event => {
-		setNewTaskTitle('')
-		event.target.blur()
-		setElementState({
-			createTaskButton: true,
-			taskForm: false,
-		})
-	}
-
-	const showNewTaskFormOnClick = event => {
-		event.preventDefault()
-		setElementState({
-			createTaskButton: false,
-			taskForm: true,
-		})
-		setTimeout(() => {
-			newTaskRef.current.focus()
-		}, 50)
+	const taskStateObject = {
+		userId: 1,
+		boardId: props.boardId,
+		listId: listId,
+		status: 'active',
 	}
 
 	return (
@@ -141,43 +66,14 @@ function List(props) {
 				/>
 			</form>
 
-			<div className="tasks-container">
-				{tasksFiltered}
-
-				<form
-					onSubmit={disableFormOnSubmit}
-					ref={newTaskFormRef}
-					autoComplete="off"
-					className={`new-task-form ${elementState.taskForm ? '' : 'hide'}`}
-				>
-					<TextareaAutosize
-						minRows={3}
-						name="newTask"
-						className="new-task-form-textarea"
-						spellCheck="false"
-						placeholder="Enter title for this task..."
-						value={newTaskTitle}
-						inputRef={newTaskRef}
-						onChange={addTaskTitleOnChange}
-						onKeyDown={addTaskOnReturn}
-					/>
-
-					<button type="button" className="green" onClick={addNewTaskOnClick}>
-						Add Task
-					</button>
-
-					<button type="button" className="red" onClick={resetNewTaskOnClick}>
-						Cancel
-					</button>
-				</form>
-			</div>
-
-			<button
-				className={`add-task-button ${elementState.createTaskButton ? '' : 'hide'}`}
-				onClick={showNewTaskFormOnClick}
-			>
-				+ Add another task
-			</button>
+			<InputForm
+				className="master-task-class"
+				title="task"
+				setItemState={setTask}
+				stateObject={taskStateObject}
+				listedData={tasksFiltered}
+				textareaHeight={3}
+			/>
 		</div>
 	)
 }

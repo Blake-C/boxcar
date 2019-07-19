@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
-import TextareaAutosize from 'react-textarea-autosize'
+import React, { useState, useEffect } from 'react'
 import List from './list/list'
+import InputForm from './inputForm'
 import './board.scss'
 
 function Board({ match }) {
-	const newListRef = useRef()
-
 	useEffect(() => {
 		fetchLists()
 		fetchBoards()
@@ -13,11 +11,6 @@ function Board({ match }) {
 
 	const [lists, setLists] = useState([])
 	const [boards, setBoards] = useState([])
-	const [newListTitle, setNewListTitle] = useState('')
-	const [elementState, setElementState] = useState({
-		createListButton: true,
-		listForm: false,
-	})
 
 	const fetchLists = async () => {
 		const data = await fetch('http://localhost:3000/data/lists-data.json')
@@ -69,73 +62,9 @@ function Board({ match }) {
 		}
 	}, [board])
 
-	const disableFormOnSubmit = event => event.preventDefault()
-
-	const addListTitleOnChange = event => {
-		setNewListTitle(event.target.value)
-	}
-
-	// Add list to state on input return
-	const addListOnReturn = event => {
-		const code = event.keyCode ? event.keyCode : event.which
-
-		// Return
-		if (code === 13) {
-			event.preventDefault()
-			addNewListOnClick()
-		}
-
-		// Escape
-		if (code === 27) {
-			event.preventDefault()
-			setNewListTitle('')
-			setElementState({
-				createListButton: true,
-				listForm: false,
-			})
-		}
-	}
-
-	const addNewListOnClick = () => {
-		const newListTitle = newListRef.current.value
-
-		if (newListTitle === '') return
-
-		setLists(prevState => [
-			...prevState,
-			{
-				id: Date.now(),
-				userId: 1,
-				boardId: match.params.id,
-				title: newListTitle,
-			},
-		])
-
-		setTimeout(() => {
-			newListRef.current.focus()
-		}, 50)
-
-		setNewListTitle('')
-	}
-
-	const resetNewListOnClick = event => {
-		setNewListTitle('')
-		event.target.blur()
-		setElementState({
-			createListButton: true,
-			listForm: false,
-		})
-	}
-
-	const showNewListFormOnClick = event => {
-		event.preventDefault()
-		setElementState({
-			createListButton: false,
-			listForm: true,
-		})
-		setTimeout(() => {
-			newListRef.current.focus()
-		}, 50)
+	const listStateObject = {
+		userId: 1,
+		boardId: match.params.id,
 	}
 
 	return (
@@ -145,38 +74,15 @@ function Board({ match }) {
 			<div className="lists-container">
 				{filterLists}
 
-				<form
-					onSubmit={disableFormOnSubmit}
-					autoComplete="off"
-					className={`new-list-form ${elementState.listForm ? '' : 'hide'}`}
-				>
-					<TextareaAutosize
-						rows={3}
-						name="newList"
-						className="new-list-textarea"
-						spellCheck="false"
-						placeholder="Enter list title..."
-						value={newListTitle}
-						inputRef={newListRef}
-						onChange={addListTitleOnChange}
-						onKeyDown={addListOnReturn}
+				<div>
+					<InputForm
+						className="master-list-class"
+						title="list"
+						setItemState={setLists}
+						stateObject={listStateObject}
+						textareaHeight={1}
 					/>
-
-					<button type="button" className="green" onClick={addNewListOnClick}>
-						Add List
-					</button>
-
-					<button type="button" className="red" onClick={resetNewListOnClick}>
-						Cancel
-					</button>
-				</form>
-
-				<button
-					className={`add-list-button ${elementState.createListButton ? '' : 'hide'}`}
-					onClick={showNewListFormOnClick}
-				>
-					+ Add another list
-				</button>
+				</div>
 			</div>
 		</React.Fragment>
 	)
