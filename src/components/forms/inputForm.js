@@ -79,8 +79,10 @@ function InputForm(props) {
 	}
 
 	useEffect(() => {
-		newFormRef.current.scrollIntoView()
-	}, [newFormRef])
+		if (props.jump !== false) {
+			newFormRef.current.scrollIntoView()
+		}
+	}, [newFormRef, props.jump])
 
 	return (
 		<React.Fragment>
@@ -97,7 +99,7 @@ function InputForm(props) {
 						minRows={props.textareaHeight}
 						className="new-item-textarea"
 						spellCheck="false"
-						placeholder="Enter list title..."
+						placeholder={`Enter ${props.title} title...`}
 						value={newItemTitle}
 						inputRef={newTextareaRef}
 						onChange={addTitleOnChange}

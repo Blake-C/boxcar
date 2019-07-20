@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import TextareaAutosize from 'react-textarea-autosize'
 import Task from './task/task'
-import InputForm from '../inputForm'
+import InputForm from '../../forms/inputForm'
 
 function List(props) {
 	// Get board data from props

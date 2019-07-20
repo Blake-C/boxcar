@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import List from './list/list'
-import InputForm from './inputForm'
+import InputForm from '../forms/inputForm'
 import './board.scss'
 
 function Board({ match }) {

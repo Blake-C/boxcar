@@ -18,8 +18,8 @@ function Boards() {
 
 	return (
 		<div className="boards-list container fixed">
-			<Board title="Featured" data={boards} featured={true} />
-			<Board title="Boards" data={boards} featured={false} />
+			<Board title="Featured" data={boards} featured={true} setBoardsState={setBoards} />
+			<Board title="Boards" data={boards} featured={false} setBoardsState={setBoards} />
 		</div>
 	)
 }
