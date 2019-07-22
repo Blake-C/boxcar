@@ -19,13 +19,13 @@ TODO:
 			Enter will submit form and create new task
 		✔ Add new task to state @done(Sat. 07/13/2019 - 04:56:18 PM)
 		☐ Think about how we want the task detail view to work
-	☐ Create add new list button
-		☐ Create button
+	✔ Create add new list button @done(Fri. 07/19/2019 - 08:06:54 PM)
+		✔ Create button @done(Fri. 07/19/2019 - 08:06:44 PM)
 			Add new list
 			Submit form
 			Cancel form
-		☐ Add list to state
-		☐ See if we can reuse the create new task form
+		✔ Add list to state @done(Fri. 07/19/2019 - 08:06:47 PM)
+		✔ See if we can reuse the create new task form @done(Fri. 07/19/2019 - 08:06:50 PM)
 	☐ Task detail view
 		☐ Fields
 			Title
